@@ -22,8 +22,8 @@ bg_X1 = 0
 bg_X2 = bg.get_width()
 bg_move = 3
 
-player_size = (20, 20)
-player = pygame.transform.scale(pygame.image.load('player.png').convert_alpha(), (121, 51)) 
+player_size = (121, 51)
+player = pygame.transform.scale(pygame.image.load('player.png').convert_alpha(), player_size) 
 player_rect =  pygame.Rect(0, HEIGHT/2, *player_size)
 # player_speed = [1, 1]
 player_move_down = [0, 4]
@@ -32,16 +32,16 @@ player_move_left = [-4, 0]
 player_move_right = [4, 0]
 
 def create_enemy():
-    enemy_size = (30, 30)
-    enemy = pygame.transform.scale(pygame.image.load('enemy.png').convert_alpha(), (137, 48)) 
+    enemy_size = (137, 48)
+    enemy = pygame.transform.scale(pygame.image.load('enemy.png').convert_alpha(), enemy_size) 
     # enemy.fill(COLOR_BLUE)
     enemy_rect = pygame.Rect(WIDTH, random.randint(50, HEIGHT - 50), *enemy_size)
     enemy_move = [random.randint(-8, -4), 0]
     return [enemy, enemy_rect, enemy_move]
 
 def create_bonus():
-    bonus_size = (30, 30)
-    bonus = pygame.transform.scale(pygame.image.load('bonus.png').convert_alpha(), (119, 198)) 
+    bonus_size = (119, 198)
+    bonus = pygame.transform.scale(pygame.image.load('bonus.png').convert_alpha(), bonus_size) 
     # bonus.fill(COLOR_GREEN)
     bonus_rect = pygame.Rect(random.randint(100, WIDTH - 100), 0, *bonus_size)
     bonus_move = [0, random.randint(4, 8)]
@@ -61,7 +61,7 @@ score = 0
 
 playing = True
 while playing:
-    FPS.tick(240)
+    FPS.tick(120)
     for event in pygame.event.get():
         if event.type == QUIT:
             playing = False
